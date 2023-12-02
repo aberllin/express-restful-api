@@ -9,9 +9,10 @@ const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/pages'));
+app.set('views', path.join(__dirname, '/views'));
 
 let todos = [{id: uuid(), content: 'I am your first todo'}];
 

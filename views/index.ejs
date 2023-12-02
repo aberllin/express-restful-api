@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<body>
+    <h1>Welcome to your todo list!</h1>
+    <ul>
+        <% if (todos.length !== 0) {   %>
+            <% for (todo of todos) { %>
+                <li style="display: flex; gap: 8px;">- <%= todo.content %> / <a href="/<%= todo.id %>/edit">Edit todo</a> /  <a href="/<%= todo.id %>/">Details todo</a> /  <form method="POST" action="/<%= todo.id %>?_method=DELETE"><button>Delete todo</button></form></li>
+            <% }%>
+        <% }  %>
+    </ul>
+
+    <a href="/new">Add new todo</a>
+</body>
+</html>
